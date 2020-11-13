@@ -20,3 +20,11 @@ When launching this program as `RedditMonitor.exe --save` it will document, in t
 	 - Thousands_gather_in_Belarus_to_mourn_protester_who_was_beaten_to_death_by_undercover_policeman
 	 - Report_Neste_responsible_for_rainforest_destruction_the_size_of_Paris_since_2019
 	 -  China_congratulates_Joe_Biden_on_being_elected_US_president_says_we_respect_the_choice_of_the_American_people
+
+## OS compatibility 
+This is written in .net core and thus will work on any platform that supports .net core
+to install .net core on linux follow the following documentation: 
+https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
+
+You may also need to install the .net  core runtime for windows at the following resource: 
+https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
