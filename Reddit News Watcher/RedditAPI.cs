@@ -9,7 +9,7 @@ namespace Reddit_News_Watcher
 {
 	public static class RedditAPI
 	{
-		private const string RedditUrl = "https://www.reddit.com/r/worldnews/";
+		private const string RedditUrl = "https://old.reddit.com/r/worldnews/new/";
 		public static RedditFeed RequestNews()
 		{
 			var client = new HttpClient();

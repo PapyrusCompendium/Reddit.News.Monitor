@@ -11,40 +11,53 @@ namespace Reddit_News_Watcher.Models
 		public NewsBlock[] NewsStories { get; set; }
 		public RedditFeed(string rawHtml)
 		{
-			var allTitles = GetAllCaptures(rawHtml, "TitleRegex");
-			var allvotes = GetAllCaptures(rawHtml, "VotesRegex");
-			var allSources = GetAllCaptures(rawHtml, "SourceRegex");
+			NewsStories = ParseRedditHtml(rawHtml);
+		}
 
-			NewsStories = new NewsBlock[allTitles.Length];
-			for (int x = 0; x < allTitles.Length; x++)
+		private NewsBlock[] ParseRedditHtml(string rawHtml)
+		{
+			var newsFeeds = new List<NewsBlock>();
+			var sourceMatches = Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString("SourceRegex"));
+			var taglineMatches = Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString("TaglineRegex"));
+			var domainMatches = Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString("DomainRegex"));
+			var rankMatches = Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString("RankRegex"));
+			var titleMatches = Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString("TitleRegex"));
+
+			for (int x = 0; x < sourceMatches.Count; x++)
 			{
-				NewsStories[x] = new NewsBlock
+				var sourceCapGroup = sourceMatches[x].Groups;
+				var taglineCapGroups = taglineMatches[x].Groups;
+				var domainCapgroups = domainMatches[x].Groups;
+				var rankCapGroups = rankMatches[x].Groups;
+				var titleCapGroups = titleMatches[x].Groups;
+
+				newsFeeds.Add(new NewsBlock()
 				{
-					Title = allTitles[x],
-					Votes = allvotes[x],
-					Source = allSources[x]
-				};
+					Source = sourceCapGroup[1].Value,
+					Title = titleCapGroups[1].Value,
+					PostDate = taglineCapGroups[1].Value,
+					PostAge = taglineCapGroups[2].Value,
+					AuthorProfile = taglineCapGroups[3].Value,
+					Author = taglineCapGroups[4].Value,
+					Domain = domainCapgroups[1].Value,
+					Rank = rankCapGroups[1].Value
+				});
 			}
+
+			newsFeeds.Reverse();
+			return newsFeeds.ToArray();
 		}
 
 		public struct NewsBlock
 		{
 			public string Title { get; set; }
-			public string Votes { get; set; }
+			public string Rank { get; set; }
 			public string Source { get; set; }
-		}
-
-		private string[] GetAllCaptures(string rawHtml, string regexName)
-		{
-			List<string> allMatches = new List<string>();
-			foreach(Match match in Regex.Matches(rawHtml, Properties.Resources.ResourceManager.GetString(regexName)))
-			{
-				if (match.Success)
-				{					
-					allMatches.Add(HttpUtility.HtmlDecode(match.Groups[1].Value));
-				}
-			}
-			return allMatches.ToArray();
+			public string Author { get; set; }
+			public string AuthorProfile { get; set; }
+			public string PostAge { get; set; }
+			public string PostDate { get; set; }
+			public string Domain { get; set; }
 		}
 	}
 }

@@ -61,7 +61,25 @@ namespace Reddit_News_Watcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;(.+)&quot; class=&quot;\S+ styled-outbound-link&quot; post=&quot;.+&quot; rel=&quot;noopener nofollow ugc&quot; target=&quot;_blank&quot;&gt;.+class=&quot;icon icon-outboundLink.+&lt;\/i&gt;&lt;\/a&gt;.
+        ///   Looks up a localized string similar to &lt;span class=&quot;domain&quot;&gt;\(&lt;a href=&quot;\S+&quot;&gt;(\S+)&lt;\/a&gt;.
+        /// </summary>
+        internal static string DomainRegex {
+            get {
+                return ResourceManager.GetString("DomainRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;span class=&quot;rank&quot;&gt;(\d+)&lt;\/span&gt;.
+        /// </summary>
+        internal static string RankRegex {
+            get {
+                return ResourceManager.GetString("RankRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;a class=&quot;title \S+ \S+&quot; data-event-action=&quot;title&quot; href=&quot;(\S+)&quot;.
         /// </summary>
         internal static string SourceRegex {
             get {
@@ -70,20 +88,20 @@ namespace Reddit_News_Watcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;h3 class=&quot;\S+&quot;&gt;(.+)&lt;\/h3&gt;&lt;\/div&gt;.
+        ///   Looks up a localized string similar to &lt;p class=&quot;tagline &quot;&gt;.+?&lt;time title=&quot;(.+?)&quot; datetime=&quot;.+?&quot; class=&quot;live-timestamp&quot;&gt;(.+?)&lt;\/time&gt;.+?&lt;a href=&quot;(.+?)&quot; class=&quot;.+?&quot; &gt;(.+?)&lt;\/a&gt;.
         /// </summary>
-        internal static string TitleRegex {
+        internal static string TaglineRegex {
             get {
-                return ResourceManager.GetString("TitleRegex", resourceCulture);
+                return ResourceManager.GetString("TaglineRegex", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;button \S+&quot;upvote&quot; \S+ class=&quot;voteButton&quot; data-click-id=&quot;upvote&quot; id=&quot;upvote-button-\S+&quot;&gt;&lt;span class=&quot;.+&quot;&gt;&lt;i class=&quot;icon icon-upvote .+&quot;&gt;(.+)&lt;\/div&gt;&lt;button.
+        ///   Looks up a localized string similar to data-outbound-expiration=&quot;.+? &gt;(.+?)&lt;\/a&gt;.+?&lt;span class=&quot;domain&quot;&gt;.
         /// </summary>
-        internal static string VotesRegex {
+        internal static string TitleRegex {
             get {
-                return ResourceManager.GetString("VotesRegex", resourceCulture);
+                return ResourceManager.GetString("TitleRegex", resourceCulture);
             }
         }
     }

@@ -20,7 +20,9 @@ namespace Reddit_News_Watcher
 				stringBuilder.Clear();
 				stringBuilder.AppendLine($"Headline: {newsFeed.Title}");
 				stringBuilder.AppendLine($"Source: {newsFeed.Source}");
-				stringBuilder.AppendLine($"Votes: {newsFeed.Votes}");
+				stringBuilder.AppendLine($"Author: {newsFeed.Author} - {newsFeed.AuthorProfile}");
+				stringBuilder.AppendLine($"Domain: {newsFeed.Domain}");
+				stringBuilder.AppendLine($"Date: {newsFeed.PostDate}");
 
 				File.WriteAllText(@$"RedditNews\{date}\{NormalizeFileName(newsFeed.Title)}", stringBuilder.ToString());
 			}

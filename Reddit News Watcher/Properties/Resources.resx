@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DomainRegex" xml:space="preserve">
+    <value>&lt;span class="domain"&gt;\(&lt;a href="\S+"&gt;(\S+)&lt;\/a&gt;</value>
+  </data>
+  <data name="RankRegex" xml:space="preserve">
+    <value>&lt;span class="rank"&gt;(\d+)&lt;\/span&gt;</value>
+  </data>
   <data name="SourceRegex" xml:space="preserve">
-    <value>&lt;a href="(.+)" class="\S+ styled-outbound-link" post=".+" rel="noopener nofollow ugc" target="_blank"&gt;.+class="icon icon-outboundLink.+&lt;\/i&gt;&lt;\/a&gt;</value>
+    <value>&lt;a class="title \S+ \S+" data-event-action="title" href="(\S+)"</value>
+  </data>
+  <data name="TaglineRegex" xml:space="preserve">
+    <value>&lt;p class="tagline "&gt;.+?&lt;time title="(.+?)" datetime=".+?" class="live-timestamp"&gt;(.+?)&lt;\/time&gt;.+?&lt;a href="(.+?)" class=".+?" &gt;(.+?)&lt;\/a&gt;</value>
   </data>
   <data name="TitleRegex" xml:space="preserve">
-    <value>&lt;h3 class="\S+"&gt;(.+)&lt;\/h3&gt;&lt;\/div&gt;</value>
-  </data>
-  <data name="VotesRegex" xml:space="preserve">
-    <value>&lt;button \S+"upvote" \S+ class="voteButton" data-click-id="upvote" id="upvote-button-\S+"&gt;&lt;span class=".+"&gt;&lt;i class="icon icon-upvote .+"&gt;(.+)&lt;\/div&gt;&lt;button</value>
+    <value>data-outbound-expiration=".+? &gt;(.+?)&lt;\/a&gt;.+?&lt;span class="domain"&gt;</value>
   </data>
 </root>
