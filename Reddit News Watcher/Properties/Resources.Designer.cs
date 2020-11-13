@@ -61,15 +61,6 @@ namespace Reddit_News_Watcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a class=&quot;.+&quot; jsname=&quot;.+&quot; jsaction=&quot;click:.+;&quot; data-nav=&quot;\d+&quot; tabindex=&quot;\d+&quot; style=&quot;height: \d+px;&quot; href=&quot;(.+)&quot; data-deferred=&quot;\d+&quot;.
-        /// </summary>
-        internal static string GoogleImageRegex {
-            get {
-                return ResourceManager.GetString("GoogleImageRegex", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;a href=&quot;(.+)&quot; class=&quot;\S+ styled-outbound-link&quot; post=&quot;.+&quot; rel=&quot;noopener nofollow ugc&quot; target=&quot;_blank&quot;&gt;.+class=&quot;icon icon-outboundLink.+&lt;\/i&gt;&lt;\/a&gt;.
         /// </summary>
         internal static string SourceRegex {

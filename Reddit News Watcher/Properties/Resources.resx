@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GoogleImageRegex" xml:space="preserve">
-    <value>&lt;a class=".+" jsname=".+" jsaction="click:.+;" data-nav="\d+" tabindex="\d+" style="height: \d+px;" href="(.+)" data-deferred="\d+"</value>
-  </data>
   <data name="SourceRegex" xml:space="preserve">
     <value>&lt;a href="(.+)" class="\S+ styled-outbound-link" post=".+" rel="noopener nofollow ugc" target="_blank"&gt;.+class="icon icon-outboundLink.+&lt;\/i&gt;&lt;\/a&gt;</value>
   </data>
